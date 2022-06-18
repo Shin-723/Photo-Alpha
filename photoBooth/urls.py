@@ -14,15 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include, re_path
+# from django.urls import path, include, re_path
 from django.conf.urls.static import static
 from django.conf import settings
-from django.urls import re_path as url
+from django.urls import re_path,path,include 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('checks/', include('checks.urls')),
+    re_path('admin/', admin.site.urls),
+    re_path('checks/', include('checks.urls')),
     # rest-auth
-    path('rest-auth/', include('rest_auth.urls')),
-    path('rest-auth/signup/', include('rest_auth.registration.urls')),
+    re_path('rest-auth/', include('rest_auth.urls')),
+    re_path('rest-auth/signup/', include('rest_auth.registration.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,11 +1,11 @@
-from django.urls import path,re_path
+# from django.urls import path,re_path
 from . import views
-from django.urls import re_path as url
+from django.urls import re_path,path 
 
 app_name = 'checks'
 
 urlpatterns = [
-    path('', views.check_list),
-    path('create/', views.create_check),
-    path('<int:check_pk>', views.check_detail),
+    re_path('', views.check_list),
+    re_path('create/', views.create_check),
+    re_path('<int:check_pk>', views.check_detail),
 ]
